@@ -13,7 +13,7 @@ import kotlin.reflect.KClass
 fun <R> withFallbacks(fallbacks: List<Fallback<R>>, body: () -> R): R {
     return try {
         body()
-    } catch (exc: Throwable) {
+    } catch (exc: Exception) {
         fallbacks.first { it.isSuit(exc) }
                 .run(exc)
     }
