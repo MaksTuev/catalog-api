@@ -5,7 +5,8 @@ import java.util.*
 import javax.persistence.*
 
 @Entity
-@Table(name = "product")
+@Table(name = "product",
+        indexes = [ Index(name = "FK__product__directory_id", columnList = "directory_id") ])
 data class ProductEntity(
 
         @Id
